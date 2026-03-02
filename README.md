@@ -1,18 +1,20 @@
-# Krisomika Retail Private Limited Website
+# Grocery Select – Corporate Website
 
-This repository contains a simple static website for **Krisomika Retail Private Limited**.
+Multi-page corporate website for **Grocery Select**, operated by **Krisomika Retail Private Limited**.
 
-## Research step completed
-Before building the site, I attempted to fetch company details from public corporate directories and source pages over the network. In this execution environment, outbound HTTP(S) access returned proxy `403 CONNECT tunnel failed`, so complete live verification could not be finished here.
-
-The site therefore uses publicly known baseline identity details:
-- Company name: Krisomika Retail Private Limited
-- State marker in CIN: West Bengal (`WB`)
-- Legal type: Private Limited Company
-- CIN used on page: `U52100WB2015PTC205667`
+## Included pages
+- Homepage (brand + franchise CTA)
+- About
+- Corporate Information
+- Franchise Opportunity
+- Private Label Products
+- Supplier & Distribution
+- Store Locator
+- Contact
+- Legal pages: Privacy Policy, Terms & Conditions, Franchise Disclaimer, Copyright Notice
 
 ## Run locally
 ```bash
 /usr/bin/python3 -m http.server 4173
 ```
-Then open <http://localhost:4173>.
+Then open `http://localhost:4173`.
