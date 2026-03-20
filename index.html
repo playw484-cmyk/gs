@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krisomika Retail Private Limited | Careers</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --primary: #0d3b66;
+      --accent: #f4a261;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #dbe3ee;
+      --success: #166534;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #edf4ff, var(--bg));
+      color: var(--text);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(13, 59, 102, 0.96), rgba(28, 99, 155, 0.92));
+      color: #fff;
+      padding: 72px 20px 88px;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero-grid,
+    .content-grid {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: start;
+    }
+
+    h1, h2, h3 { margin-top: 0; }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      max-width: 640px;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .pill {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.24);
+      font-size: 0.95rem;
+    }
+
+    .hero-card,
+    .panel {
+      background: var(--card);
+      border-radius: 22px;
+      box-shadow: 0 20px 45px rgba(13, 59, 102, 0.12);
+    }
+
+    .hero-card {
+      color: var(--text);
+      padding: 28px;
+    }
+
+    .hero-card ul {
+      padding-left: 20px;
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+
+    main {
+      margin-top: -52px;
+      padding: 0 0 64px;
+    }
+
+    .content-grid {
+      margin-top: 24px;
+    }
+
+    .panel {
+      padding: 28px;
+      border: 1px solid var(--border);
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .process-step:last-child { border-bottom: none; }
+
+    .step-num {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: #eef5ff;
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .muted { color: var(--muted); line-height: 1.6; }
+
+    form {
+      display: grid;
+      gap: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      font: inherit;
+      background: #fff;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 3px solid rgba(13, 59, 102, 0.12);
+      border-color: var(--primary);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .upload-box {
+      border: 1.5px dashed #9eb7d2;
+      border-radius: 16px;
+      padding: 16px;
+      background: #f8fbff;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 22px;
+      background: linear-gradient(135deg, var(--primary), #175b99);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn:hover { filter: brightness(1.04); }
+
+    .note {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .success {
+      display: none;
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #ecfdf3;
+      color: var(--success);
+      border: 1px solid #bbf7d0;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 26px 16px 40px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p style="text-transform: uppercase; letter-spacing: 0.2em; font-weight: 700; margin-bottom: 14px;">Krisomika Retail Private Limited</p>
+        <h1>Employee Recruitment Process & Online Job Application</h1>
+        <p class="subtitle">
+          Join a growing retail organization with a structured hiring process, transparent communication, and a quick online application experience.
+        </p>
+        <div class="pill-list">
+          <span class="pill">Retail Operations</span>
+          <span class="pill">Store Management</span>
+          <span class="pill">Supply Chain</span>
+          <span class="pill">Customer Experience</span>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h2>Why apply with us?</h2>
+        <ul>
+          <li>Clear recruitment stages with timely updates.</li>
+          <li>Opportunities for freshers and experienced professionals.</li>
+          <li>Simple online application form with resume upload.</li>
+          <li>Inclusive, customer-focused, and growth-oriented work culture.</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <div class="container content-grid">
+      <section class="panel">
+        <h2>Recruitment Process</h2>
+        <p class="muted">Our hiring process is designed to be fast, fair, and candidate-friendly.</p>
+
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <div>
+            <h3>Application Review</h3>
+            <p class="muted">The HR team reviews your profile, education, experience, and submitted resume against role requirements.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <div>
+            <h3>Screening Call</h3>
+            <p class="muted">Shortlisted candidates are contacted for a brief conversation about availability, role fit, and salary expectations.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <div>
+            <h3>Interview & Assessment</h3>
+            <p class="muted">Depending on the role, candidates may complete an interview round, operational assessment, or store-facing scenario evaluation.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">4</div>
+          <div>
+            <h3>Final Selection</h3>
+            <p class="muted">Selected applicants receive the final communication with joining steps, documentation, and onboarding guidance.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Online Job Application Form</h2>
+        <p class="muted">Complete the form below to submit your details for current or upcoming opportunities.</p>
+
+        <form id="jobApplicationForm">
+          <div>
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" placeholder="Enter your full name" required />
+          </div>
+
+          <div class="two-col">
+            <div>
+              <label for="experience">Experience</label>
+              <input id="experience" name="experience" type="text" placeholder="e.g. 3 years in retail sales" required />
+            </div>
+            <div>
+              <label for="education">Education</label>
+              <input id="education" name="education" type="text" placeholder="e.g. B.Com / MBA / 12th Pass" required />
+            </div>
+          </div>
+
+          <div class="upload-box">
+            <label for="resume">Resume Upload</label>
+            <input id="resume" name="resume" type="file" accept=".pdf,.doc,.docx" required />
+            <p class="note" id="fileNote">Accepted formats: PDF, DOC, DOCX.</p>
+          </div>
+
+          <button class="btn" type="submit">Submit Application</button>
+          <div class="success" id="successMessage">Application submitted successfully. Our recruitment team will review your profile and contact you if shortlisted.</div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    © 2026 Krisomika Retail Private Limited Careers Portal
+  </footer>
+
+  <script>
+    const form = document.getElementById('jobApplicationForm');
+    const resumeInput = document.getElementById('resume');
+    const fileNote = document.getElementById('fileNote');
+    const successMessage = document.getElementById('successMessage');
+
+    resumeInput.addEventListener('change', () => {
+      const file = resumeInput.files[0];
+      fileNote.textContent = file ? `Selected file: ${file.name}` : 'Accepted formats: PDF, DOC, DOCX.';
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      successMessage.style.display = 'block';
+      form.reset();
+      fileNote.textContent = 'Accepted formats: PDF, DOC, DOCX.';
+    });
+  </script>
+</body>
+</html>
