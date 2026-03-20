@@ -6,303 +6,668 @@
   <title>Krisomika Retail Private Limited | Careers</title>
   <style>
     :root {
-      --bg: #f4f7fb;
-      --card: #ffffff;
-      --primary: #0d3b66;
-      --accent: #f4a261;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --border: #dbe3ee;
-      --success: #166534;
+      --bg: #08111f;
+      --surface: rgba(10, 22, 40, 0.72);
+      --surface-strong: rgba(7, 17, 31, 0.92);
+      --card: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 255, 255, 0.14);
+      --text: #ecf3ff;
+      --muted: #b7c4da;
+      --gold: #f4c46b;
+      --gold-strong: #ffb84d;
+      --cyan: #79d8ff;
+      --success: #d8ffe7;
+      --success-border: rgba(128, 246, 183, 0.45);
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.36);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
     }
 
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #edf4ff, var(--bg));
-      color: var(--text);
+
+    html {
+      scroll-behavior: smooth;
     }
 
-    .hero {
-      background: linear-gradient(135deg, rgba(13, 59, 102, 0.96), rgba(28, 99, 155, 0.92));
-      color: #fff;
-      padding: 72px 20px 88px;
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(74, 144, 226, 0.28), transparent 34%),
+        radial-gradient(circle at top right, rgba(244, 196, 107, 0.18), transparent 28%),
+        linear-gradient(135deg, #07101d 0%, #0d1f38 45%, #091527 100%);
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      filter: blur(55px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      top: -80px;
+      left: -110px;
+      background: rgba(121, 216, 255, 0.2);
+    }
+
+    body::after {
+      right: -120px;
+      bottom: 0;
+      background: rgba(255, 184, 77, 0.16);
+    }
+
+    .page-shell {
+      position: relative;
+      z-index: 1;
     }
 
     .container {
-      width: min(1100px, calc(100% - 32px));
+      width: min(1200px, calc(100% - 32px));
       margin: 0 auto;
     }
 
-    .hero-grid,
-    .content-grid {
-      display: grid;
-      gap: 28px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      align-items: start;
-    }
-
-    h1, h2, h3 { margin-top: 0; }
-    h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      margin-bottom: 16px;
-    }
-
-    .subtitle {
-      font-size: 1.08rem;
-      line-height: 1.7;
-      max-width: 640px;
-      color: rgba(255,255,255,0.92);
-    }
-
-    .pill-list {
+    .topbar {
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .pill {
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.24);
-      font-size: 0.95rem;
-    }
-
-    .hero-card,
-    .panel {
-      background: var(--card);
-      border-radius: 22px;
-      box-shadow: 0 20px 45px rgba(13, 59, 102, 0.12);
-    }
-
-    .hero-card {
-      color: var(--text);
-      padding: 28px;
-    }
-
-    .hero-card ul {
-      padding-left: 20px;
-      margin-bottom: 0;
-      line-height: 1.7;
-    }
-
-    main {
-      margin-top: -52px;
-      padding: 0 0 64px;
-    }
-
-    .content-grid {
-      margin-top: 24px;
-    }
-
-    .panel {
-      padding: 28px;
-      border: 1px solid var(--border);
-    }
-
-    .process-step {
-      display: grid;
-      grid-template-columns: 52px 1fr;
+      justify-content: space-between;
+      align-items: center;
       gap: 16px;
-      align-items: start;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
+      padding: 28px 0 8px;
     }
 
-    .process-step:last-child { border-bottom: none; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff;
+    }
 
-    .step-num {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      background: #eef5ff;
-      color: var(--primary);
+    .brand-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
-      font-weight: bold;
+      background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+      color: var(--gold);
       font-size: 1.1rem;
     }
 
-    .muted { color: var(--muted); line-height: 1.6; }
-
-    form {
-      display: grid;
-      gap: 16px;
+    .contact-chip {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    label {
-      display: block;
-      margin-bottom: 8px;
+    .contact-chip a {
+      color: #fff;
+      text-decoration: none;
       font-weight: 700;
-      color: var(--primary);
     }
 
-    input, select, textarea {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      font: inherit;
-      background: #fff;
+    .hero {
+      padding: 26px 0 52px;
     }
 
-    input:focus, select:focus, textarea:focus {
-      outline: 3px solid rgba(13, 59, 102, 0.12);
-      border-color: var(--primary);
-    }
-
-    .two-col {
+    .hero-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 28px;
+      align-items: stretch;
     }
 
-    .upload-box {
-      border: 1.5px dashed #9eb7d2;
-      border-radius: 16px;
-      padding: 16px;
-      background: #f8fbff;
+    .glass-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .hero-copy {
+      padding: 40px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      background: rgba(244, 196, 107, 0.12);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.7rem);
+      line-height: 1.06;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-copy p {
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.8;
+      max-width: 60ch;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      cursor: pointer;
     }
 
     .btn {
       border: none;
-      border-radius: 999px;
-      padding: 14px 22px;
-      background: linear-gradient(135deg, var(--primary), #175b99);
+      color: #08111f;
+      background: linear-gradient(135deg, var(--gold), var(--gold-strong));
+      box-shadow: 0 18px 40px rgba(244, 196, 107, 0.28);
+    }
+
+    .btn-secondary {
       color: #fff;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .btn:hover,
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .metric {
+      padding: 18px;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .hero-panel {
+      padding: 30px;
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .panel-title {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .feature-item,
+    .timeline-item,
+    .info-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .feature-item {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 14px;
+      padding: 18px;
+    }
+
+    .icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      background: linear-gradient(180deg, rgba(244,196,107,0.18), rgba(121,216,255,0.08));
+      border: 1px solid rgba(244, 196, 107, 0.18);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 0 0 28px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .section-card {
+      padding: 32px;
+    }
+
+    .section-kicker {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.82rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .lead {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .timeline-item {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 16px;
+    }
+
+    .timeline-step {
+      width: 56px;
+      height: 56px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, rgba(121,216,255,0.14), rgba(255,255,255,0.06));
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.1rem;
+      border: 1px solid rgba(121,216,255,0.2);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .info-card {
+      padding: 20px;
+    }
+
+    .info-card strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .form-card {
+      padding: 34px;
+    }
+
+    form {
+      display: grid;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 9px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(7,17,31,0.72);
+      color: var(--text);
+      font: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: rgba(244,196,107,0.72);
+      box-shadow: 0 0 0 4px rgba(244,196,107,0.1);
+      background: rgba(7,17,31,0.92);
+    }
+
+    .field input::file-selector-button {
+      margin-right: 12px;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(244,196,107,0.16);
+      color: var(--gold);
       font-weight: 700;
       cursor: pointer;
     }
 
-    .btn:hover { filter: brightness(1.04); }
-
-    .note {
-      font-size: 0.92rem;
+    .helper {
       color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    .submit-note {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(121,216,255,0.08);
+      border: 1px solid rgba(121,216,255,0.18);
+      color: var(--muted);
+      line-height: 1.7;
     }
 
     .success {
       display: none;
-      margin-top: 18px;
-      padding: 14px 16px;
-      border-radius: 14px;
-      background: #ecfdf3;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(115, 255, 175, 0.12);
+      border: 1px solid var(--success-border);
       color: var(--success);
-      border: 1px solid #bbf7d0;
       font-weight: 600;
     }
 
     footer {
+      padding: 20px 0 44px;
       text-align: center;
-      padding: 26px 16px 40px;
       color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .section-grid,
+      .field-grid,
+      .info-grid,
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .hero-panel,
+      .section-card,
+      .form-card {
+        padding: 26px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      .timeline-item,
+      .feature-item {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="container hero-grid">
-      <div>
-        <p style="text-transform: uppercase; letter-spacing: 0.2em; font-weight: 700; margin-bottom: 14px;">Krisomika Retail Private Limited</p>
-        <h1>Employee Recruitment Process & Online Job Application</h1>
-        <p class="subtitle">
-          Join a growing retail organization with a structured hiring process, transparent communication, and a quick online application experience.
-        </p>
-        <div class="pill-list">
-          <span class="pill">Retail Operations</span>
-          <span class="pill">Store Management</span>
-          <span class="pill">Supply Chain</span>
-          <span class="pill">Customer Experience</span>
-        </div>
+  <div class="page-shell">
+    <div class="container topbar">
+      <div class="brand">
+        <div class="brand-badge">KR</div>
+        <div>Krisomika Retail Private Limited</div>
       </div>
-      <aside class="hero-card">
-        <h2>Why apply with us?</h2>
-        <ul>
-          <li>Clear recruitment stages with timely updates.</li>
-          <li>Opportunities for freshers and experienced professionals.</li>
-          <li>Simple online application form with resume upload.</li>
-          <li>Inclusive, customer-focused, and growth-oriented work culture.</li>
-        </ul>
-      </aside>
+      <div class="contact-chip">HR Contact: <a href="mailto:hr@groceryselect.in">hr@groceryselect.in</a></div>
     </div>
-  </header>
 
-  <main>
-    <div class="container content-grid">
-      <section class="panel">
-        <h2>Recruitment Process</h2>
-        <p class="muted">Our hiring process is designed to be fast, fair, and candidate-friendly.</p>
+    <header class="hero">
+      <div class="container hero-grid">
+        <section class="glass-card hero-copy">
+          <div class="eyebrow">Premium Careers Experience</div>
+          <h1>Build your future with Krisomika Retail.</h1>
+          <p>
+            Explore a premium careers page designed for a modern retail brand. Our recruitment process is structured, fast, and professional, while the online application form sends job applications directly to our HR email for quick follow-up.
+          </p>
+          <div class="cta-row">
+            <a class="btn" href="#application-form">Apply Now</a>
+            <a class="btn-secondary" href="#recruitment-process">View Hiring Process</a>
+          </div>
+          <div class="metric-grid">
+            <div class="metric">
+              <strong>4 Steps</strong>
+              <span>Clear and transparent recruitment workflow.</span>
+            </div>
+            <div class="metric">
+              <strong>Email Alerts</strong>
+              <span>Applications route to HR at hr@groceryselect.in.</span>
+            </div>
+            <div class="metric">
+              <strong>Premium UI</strong>
+              <span>Luxury-inspired design with responsive layout.</span>
+            </div>
+          </div>
+        </section>
 
-        <div class="process-step">
-          <div class="step-num">1</div>
+        <aside class="glass-card hero-panel">
           <div>
-            <h3>Application Review</h3>
-            <p class="muted">The HR team reviews your profile, education, experience, and submitted resume against role requirements.</p>
+            <div class="section-kicker">Why candidates choose us</div>
+            <h2 class="panel-title">A polished hiring journey from application to onboarding.</h2>
           </div>
-        </div>
-        <div class="process-step">
-          <div class="step-num">2</div>
-          <div>
-            <h3>Screening Call</h3>
-            <p class="muted">Shortlisted candidates are contacted for a brief conversation about availability, role fit, and salary expectations.</p>
+          <div class="feature-list">
+            <article class="feature-item">
+              <div class="icon">01</div>
+              <div>
+                <h3>Smart screening</h3>
+                <p class="lead">Profiles are reviewed based on role-fit, store operations understanding, and growth potential.</p>
+              </div>
+            </article>
+            <article class="feature-item">
+              <div class="icon">02</div>
+              <div>
+                <h3>Quick communication</h3>
+                <p class="lead">Applications can be emailed to HR directly so the recruitment team can respond faster.</p>
+              </div>
+            </article>
+            <article class="feature-item">
+              <div class="icon">03</div>
+              <div>
+                <h3>Career mobility</h3>
+                <p class="lead">Suitable for freshers, experienced retail professionals, supervisors, and support staff.</p>
+              </div>
+            </article>
           </div>
-        </div>
-        <div class="process-step">
-          <div class="step-num">3</div>
-          <div>
-            <h3>Interview & Assessment</h3>
-            <p class="muted">Depending on the role, candidates may complete an interview round, operational assessment, or store-facing scenario evaluation.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="step-num">4</div>
-          <div>
-            <h3>Final Selection</h3>
-            <p class="muted">Selected applicants receive the final communication with joining steps, documentation, and onboarding guidance.</p>
-          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="recruitment-process">
+        <div class="container section-grid">
+          <article class="glass-card section-card">
+            <div class="section-kicker">Recruitment Process</div>
+            <h2>Professional hiring stages with complete transparency.</h2>
+            <p class="lead">
+              Our employee recruitment process is designed to evaluate skills, experience, and cultural alignment while keeping applicants informed at every important stage.
+            </p>
+            <div class="timeline">
+              <article class="timeline-item">
+                <div class="timeline-step">1</div>
+                <div>
+                  <h3>Application Review</h3>
+                  <p class="lead">HR reviews your name, experience, education, and resume to match you with current or upcoming opportunities.</p>
+                </div>
+              </article>
+              <article class="timeline-item">
+                <div class="timeline-step">2</div>
+                <div>
+                  <h3>Initial HR Connect</h3>
+                  <p class="lead">Shortlisted candidates receive an introductory call or email for role discussion, location preference, and notice period.</p>
+                </div>
+              </article>
+              <article class="timeline-item">
+                <div class="timeline-step">3</div>
+                <div>
+                  <h3>Interview & Assessment</h3>
+                  <p class="lead">Role-specific interviews may include retail operations assessment, customer handling scenarios, or leadership evaluation.</p>
+                </div>
+              </article>
+              <article class="timeline-item">
+                <div class="timeline-step">4</div>
+                <div>
+                  <h3>Offer & Onboarding</h3>
+                  <p class="lead">Selected candidates receive final confirmation, documentation guidance, and onboarding instructions from the HR team.</p>
+                </div>
+              </article>
+            </div>
+          </article>
+
+          <article class="glass-card section-card">
+            <div class="section-kicker">Candidate Experience</div>
+            <h2>Built for trust, speed, and a strong brand impression.</h2>
+            <p class="lead">
+              This page combines a premium visual presentation with a practical application workflow so candidates can apply quickly while your HR team gets complete details through email notification.
+            </p>
+            <div class="info-grid">
+              <div class="info-card">
+                <strong>Direct HR mailbox</strong>
+                <span class="lead">Form submissions are configured to route to <a href="mailto:hr@groceryselect.in" style="color: var(--gold); text-decoration: none;">hr@groceryselect.in</a>.</span>
+              </div>
+              <div class="info-card">
+                <strong>Resume collection</strong>
+                <span class="lead">Candidates can attach PDF, DOC, or DOCX resumes in the same application flow.</span>
+              </div>
+              <div class="info-card">
+                <strong>Responsive design</strong>
+                <span class="lead">The layout adapts smoothly for desktop, tablet, and mobile job seekers.</span>
+              </div>
+              <div class="info-card">
+                <strong>Brand-led presentation</strong>
+                <span class="lead">Glassmorphism panels, gradients, and refined spacing create a more premium look.</span>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section class="panel">
-        <h2>Online Job Application Form</h2>
-        <p class="muted">Complete the form below to submit your details for current or upcoming opportunities.</p>
+      <section class="section" id="application-form">
+        <div class="container">
+          <article class="glass-card form-card">
+            <div class="section-kicker">Online Job Application Form</div>
+            <h2>Submit your profile directly to the HR team.</h2>
+            <p class="lead">
+              Fill in your details below. When you submit the form, the application is posted to the configured email notification workflow for <strong>hr@groceryselect.in</strong>.
+            </p>
 
-        <form id="jobApplicationForm">
-          <div>
-            <label for="name">Full Name</label>
-            <input id="name" name="name" type="text" placeholder="Enter your full name" required />
-          </div>
+            <form id="jobApplicationForm" action="https://formsubmit.co/hr@groceryselect.in" method="POST" enctype="multipart/form-data">
+              <input type="hidden" name="_subject" value="New Job Application - Krisomika Retail Private Limited" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
 
-          <div class="two-col">
-            <div>
-              <label for="experience">Experience</label>
-              <input id="experience" name="experience" type="text" placeholder="e.g. 3 years in retail sales" required />
-            </div>
-            <div>
-              <label for="education">Education</label>
-              <input id="education" name="education" type="text" placeholder="e.g. B.Com / MBA / 12th Pass" required />
-            </div>
-          </div>
+              <div class="field-grid">
+                <div class="field">
+                  <label for="name">Full Name</label>
+                  <input id="name" name="Full Name" type="text" placeholder="Enter your full name" required />
+                </div>
+                <div class="field">
+                  <label for="experience">Experience</label>
+                  <input id="experience" name="Experience" type="text" placeholder="e.g. 3 years in retail operations" required />
+                </div>
+              </div>
 
-          <div class="upload-box">
-            <label for="resume">Resume Upload</label>
-            <input id="resume" name="resume" type="file" accept=".pdf,.doc,.docx" required />
-            <p class="note" id="fileNote">Accepted formats: PDF, DOC, DOCX.</p>
-          </div>
+              <div class="field-grid">
+                <div class="field">
+                  <label for="education">Education</label>
+                  <input id="education" name="Education" type="text" placeholder="e.g. B.Com / MBA / 12th Pass" required />
+                </div>
+                <div class="field">
+                  <label for="resume">Resume Upload</label>
+                  <input id="resume" name="attachment" type="file" accept=".pdf,.doc,.docx" required />
+                </div>
+              </div>
 
-          <button class="btn" type="submit">Submit Application</button>
-          <div class="success" id="successMessage">Application submitted successfully. Our recruitment team will review your profile and contact you if shortlisted.</div>
-        </form>
+              <div class="submit-note">
+                Email notification destination: <strong>hr@groceryselect.in</strong>. If this is the first FormSubmit use for that email, the recipient may need to confirm activation once from the inbox before receiving all future submissions.
+              </div>
+
+              <div class="helper" id="fileNote">Accepted resume formats: PDF, DOC, DOCX.</div>
+              <button class="btn" type="submit">Send Application to HR</button>
+              <div class="success" id="successMessage">Your application is ready to be sent. After submit, the details will be forwarded to hr@groceryselect.in through the configured email form endpoint.</div>
+            </form>
+          </article>
+        </div>
       </section>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    © 2026 Krisomika Retail Private Limited Careers Portal
-  </footer>
+    <footer>
+      © 2026 Krisomika Retail Private Limited Careers Portal · HR Email: hr@groceryselect.in
+    </footer>
+  </div>
 
   <script>
     const form = document.getElementById('jobApplicationForm');
@@ -312,14 +677,11 @@
 
     resumeInput.addEventListener('change', () => {
       const file = resumeInput.files[0];
-      fileNote.textContent = file ? `Selected file: ${file.name}` : 'Accepted formats: PDF, DOC, DOCX.';
+      fileNote.textContent = file ? `Selected resume: ${file.name}` : 'Accepted resume formats: PDF, DOC, DOCX.';
     });
 
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
+    form.addEventListener('submit', () => {
       successMessage.style.display = 'block';
-      form.reset();
-      fileNote.textContent = 'Accepted formats: PDF, DOC, DOCX.';
     });
   </script>
 </body>
